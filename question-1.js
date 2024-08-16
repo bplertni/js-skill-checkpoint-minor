@@ -1,7 +1,18 @@
 // Question #1: Shipping Cost Calculator
 
-function calculateShippingCost() {
+function calculateShippingCost(orders) {
   // เริ่มเขียนโค้ดตรงนี้
+  let shippingCostSummary = "";
+  orders.forEach((order) => {
+    if (order.total >= 6000) {
+      shippingCostSummary += `Order ${order.orderId}: Shipping is free.\n`;
+    } else if (order.total >= 3000) {
+      shippingCostSummary += `Order ${order.orderId}: Shipping is 250 Baht.\n`;
+    } else {
+      shippingCostSummary += `Order ${order.orderId}: Shipping is 500 Baht.\n`;
+    }
+  });
+  return shippingCostSummary.trim();
 }
 
 // ตัวอย่างการใช้งาน
